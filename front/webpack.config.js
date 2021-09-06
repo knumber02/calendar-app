@@ -10,6 +10,9 @@ module.exports = {
     modules: ["node_modules"],
     extensions: [".js", ".jsx"]
   },
+  devtool: "eval-source-map",
+  performance: {hints: false
+  },
   module: {
     rules: [
       {
@@ -37,7 +40,8 @@ module.exports = {
                   libraryDirectory: "",
                   camel2DashComponentName: false
                 }
-              ]
+              ],
+              
             ]
           }
         }
