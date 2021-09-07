@@ -9,8 +9,9 @@ const header = {
 
 export const get = async path => {
   const resp = await fetch(url(path));
+  checkError(resp.status)
   const result = await resp.json();
-
+  
   return result;
 };
 
@@ -26,8 +27,8 @@ export const post = async (path, body) => {
 
 export const deleteRequest = async path => {
   const options = { method: "DELETE" };
-  await fetch(url(path), options);
-
+  const resp = await fetch(url(path), options);
+  checkError(resp.status);
   return;
 };
 

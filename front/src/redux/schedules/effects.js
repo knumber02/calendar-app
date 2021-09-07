@@ -12,12 +12,13 @@ import {
     dispatch(schedulesSetLoading());
   
     try {
+      
       const result = await get(`schedules?month=${month}&year=${year}`);
       const formatedSchedule = result.map(r => formatSchedule(r));
   
       dispatch(schedulesFetchItem(formatedSchedule));
     } catch (err) {
-      dispatch(schedulesAsyncFailure(err.message));
+      console.error(err);
     }
   };
   
@@ -31,7 +32,8 @@ import {
       const newSchedule = formatSchedule(result);
       dispatch(schedulesAddItem(newSchedule));
     } catch (err) {
-      dispatch(schedulesAsyncFailure(err.message));
+      console.error(err);
+      // dispatch(schedulesAsyncFailure(err.message));
     }
   };
   
@@ -45,6 +47,7 @@ import {
       const newSchedules = currentSchedules.filter(s => s.id !== id);
       dispatch(schedulesDeleteItem(newSchedules));
     } catch (err) {
+      console.err(err);
       dispatch(schedulesAsyncFailure(err.message));
     }
   };
