@@ -4,6 +4,7 @@ import { LocationOnOutlined, NotesOutlined, AccessTime, Close } from "@material-
 import { withStyles } from "@material-ui/styles";
 import {DatePicker} from "@material-ui/pickers";
 import * as styles from "./style.css";
+import SimpleMap from "../GoogleMap/presentation";
 
 const spacer = {margin  : "4px 0"};
 const Title = withStyles({

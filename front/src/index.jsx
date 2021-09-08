@@ -15,6 +15,7 @@ dayjs.locale("ja");
 import CurrentScheduleDialog from "./components/CurrentScheduleDialog/container";
 import { applyMiddleware } from "redux";
 import thunk from "redux-thunk";
+import SimpleMap from "./components/GoogleMap/presentation";
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
@@ -26,6 +27,7 @@ const App = () => (
             <CalendarBoard />
             <AddScheduleDialog />
             <CurrentScheduleDialog />
+            <SimpleMap />
         </MuiPickersUtilsProvider>
     </Provider>
 )

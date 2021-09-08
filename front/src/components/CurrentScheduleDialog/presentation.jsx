@@ -59,7 +59,9 @@ const CurrentScheduleDialog = ({schedule: {item, isDialogOpen }, closeDialog, de
                              <LocationOnOutlined/>
                          </Grid>
                          <Grid item xs={10}>
-                             <Typography>{item.location}</Typography>
+                             <Typography>
+                                 {item.location}
+                             </Typography>
                          </Grid>
                      </Grid>
                    )}
