@@ -1,16 +1,31 @@
-import React , {useState, useEffect} from "react";
+import React , {useState, useEffect, useCallback ,useRef} from "react";
 import GoogleMapReact from "google-map-react";
-import Marker from "../Marker"
+import PlaceInfo from "../Marker"
 import Baloon from "../Baloon"
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
+import mapStyles from "./mapstyles";
+import {Marker} from "@react-google-maps/api";
+
+const options = {
+    styles: mapStyles,
+    disableDefaultUI: true,
+    zoomControl: true,
+}
 
 const SimpleMap = () => {
-    const [center, setCenter ] = useState({lat: "", lng:""})
-    const [zoom, setZoom] = useState(15);
-
+    const [center, setCenter ] = useState({lat: "34.665442", lng:"135.432338"})
+    const [zoom, setZoom] = useState(13);
     const [currentPosition, setCurrentPosition] = useState();
     const [isOpen, setIsOpen] = useState(false);
+    const [map, setMap] = useState(null);
+    const [maps, setMaps] = useState(null);
+    const [marker, setMarker] = useState(null);
+    const [geocoder, setGeocoder] = useState(null);
+    const [address, setAddress] = useState(null);
 
+    const mapRef = useRef();
+    const onMapLoad = useCallback((map) => {
+        mapRef.current = map;
+    }, []);
     const success = data => {
         const currentPosition = {
             lat: data.coords.latitude,
@@ -28,25 +43,73 @@ const SimpleMap = () => {
         setCurrentPosition(currentPosition);
         setCenter(currentPosition);
     }
+    
+    const handleApiLoaded = (obj) => {
+        setMap(obj.map);
+        setMaps(obj.maps);
+        setGeocoder(new obj.maps.Geocoder());
+      };
+    const search = () => {
+        geocoder.geocode({
+            address,
+        }, (result, status) => {
+            if(status == maps.GeocoderStatus.OK){
+                map.setCenter(result[0].geometry.location);
+                if(marker){
+                    marker.setMap(null);
+                }
+                setMarker(new maps.Marker({
+                    map,
+                    position: result[0].geometry.location,
+                }));
+                console.log(result[0].geometry.location.lat());
+                console.log(result[0].geometry.location.lng());
+            }
 
+        })
+    }
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(success, error);
     }, []);
+
     const changeState = () => {
         setIsOpen(!isOpen);
     }
+    const setLatLng = ({ x, y, lat, lng, event }) => {
+       if(marker){
+           marker.setMap(null);
+       }
+       const latLng = {
+           lat,
+           lng,
+       }
+       setMarker(new maps.Marker({
+            map,
+            position: latLng,
+        }));
+        map.panTo(latLng);
+      };
+    
     return (
+        <div>
+        <div>
+            <input type="text" onChange={(e) => setAddress(e.target.value)} />
+            <button type="button" onClick={search}>Search</button>
+        </div>
         <div style={{ height: "100vh", width: "100%"}}>
             <GoogleMapReact
             bootstrapURLKeys={{ key: ""}}
-            defaultCenter={center}
-            defaultZoom={zoom}
+            center={center}
+            zoom={zoom}
+            options={options}
+            onLaod={onMapLoad}
+            onGoogleApiLoaded={handleApiLoaded}
+            onClick={setLatLng}
             >
                 {currentPosition ? (
-                    <Marker
+                    <PlaceInfo
                         lat={currentPosition.lat}
                         lng={currentPosition.lng}
-                        text="currentLoaction"
                         changeState={changeState}
                     />
                 ): null}
@@ -54,6 +117,7 @@ const SimpleMap = () => {
                     <Baloon lat={currentPosition.lat} lng={currentPosition.lng} />
                 ): null}
             </GoogleMapReact>
+        </div>
         </div>
     )
 }

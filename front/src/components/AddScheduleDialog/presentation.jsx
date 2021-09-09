@@ -38,7 +38,7 @@ const AddScheduleDialog = ({ schedule: { form: {title, location, description, da
           </div>
           <Grid container spacing={1} alignItems="center" justify="space-between">
             <Grid item>
-              <LocationOnOutlined />
+              <LocationOnOutlined　/>
             </Grid>
             <Grid item xs={10}>
               <TextField style={spacer} fullWidth placeholder="場所を追加" 
