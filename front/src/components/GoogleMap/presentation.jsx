@@ -3,7 +3,8 @@ import GoogleMapReact from "google-map-react";
 import PlaceInfo from "../Marker"
 import Baloon from "../Baloon"
 import mapStyles from "./mapstyles";
-import {Marker} from "@react-google-maps/api";
+import Direction from "../Direction";
+
 
 const options = {
     styles: mapStyles,
@@ -11,7 +12,7 @@ const options = {
     zoomControl: true,
 }
 
-const SimpleMap = () => {
+ const SimpleMap =  ()  => {
     const [center, setCenter ] = useState({lat: "34.665442", lng:"135.432338"})
     const [zoom, setZoom] = useState(13);
     const [currentPosition, setCurrentPosition] = useState();
@@ -75,21 +76,22 @@ const SimpleMap = () => {
     const changeState = () => {
         setIsOpen(!isOpen);
     }
-    const setLatLng = ({ x, y, lat, lng, event }) => {
-       if(marker){
-           marker.setMap(null);
-       }
-       const latLng = {
-           lat,
-           lng,
-       }
+    const setLatLng = ({ lat, lng }) => {
+        if(marker){
+            marker.setMap(null);
+        }
+        const latLng = {
+            lat,
+            lng
+        }
+
        setMarker(new maps.Marker({
             map,
             position: latLng,
         }));
         map.panTo(latLng);
       };
-    
+
     return (
         <div>
         <div>
@@ -106,6 +108,12 @@ const SimpleMap = () => {
             onGoogleApiLoaded={handleApiLoaded}
             onClick={setLatLng}
             >
+                 {currentPosition ? (
+                    <Direction
+                        lat={currentPosition.lat}
+                        lng={currentPosition.lng}
+                    />
+                ): null}
                 {currentPosition ? (
                     <PlaceInfo
                         lat={currentPosition.lat}
@@ -121,4 +129,5 @@ const SimpleMap = () => {
         </div>
     )
 }
+
 export default SimpleMap;

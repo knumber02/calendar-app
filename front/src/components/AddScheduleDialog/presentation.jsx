@@ -14,6 +14,8 @@ const Title = withStyles({
 const AddScheduleDialog = ({ schedule: { form: {title, location, description, date},isDialogOpen, isStartEdit}, closeDialog,setSchedule, saveSchedule, setIsEditStart }) => {
     const isTitleInvalid = !title && isStartEdit;
     return (
+      <>
+
       <Dialog open={isDialogOpen} onClose={closeDialog} maxWidth="xs" fullWidth>
           <DialogActions>
               <div className={styles.closeButton}>
@@ -79,6 +81,7 @@ const AddScheduleDialog = ({ schedule: { form: {title, location, description, da
           </Button>
         </DialogActions>
       </Dialog>
+      </>
     );
 };
 export default AddScheduleDialog;
