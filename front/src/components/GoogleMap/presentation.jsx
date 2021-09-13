@@ -3,7 +3,6 @@ import GoogleMapReact from "google-map-react";
 import PlaceInfo from "../Marker"
 import Baloon from "../Baloon"
 import mapStyles from "./mapstyles";
-import Direction from "../Direction";
 
 
 const options = {
@@ -108,12 +107,6 @@ const options = {
             onGoogleApiLoaded={handleApiLoaded}
             onClick={setLatLng}
             >
-                 {currentPosition ? (
-                    <Direction
-                        lat={currentPosition.lat}
-                        lng={currentPosition.lng}
-                    />
-                ): null}
                 {currentPosition ? (
                     <PlaceInfo
                         lat={currentPosition.lat}

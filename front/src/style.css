@@ -7,26 +7,36 @@
     background-color: azure;
     margin: 0;
     padding: 20px;
+    
 }
 li:first-child{
     margin-right: auto;
 }
+@keyframes blinkEffect {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 .title {
+    animation: blinkEffect 2s ease-in-out infinite alternate;
     color:aquamarine;
     font-weight: bold;
     font-family: 'Yanone Kaffeesatz', sans-serif;
     font-size: 50px;
 }
 .pages {
-    text-decoration: none;
+    
     color: orange;
-    font-size: 30px;
-    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
     vertical-align: baseline;
 }
-.pages:visited{
+a:link, a:visited, a:hover, a:active {
     color: orange;
-}
+  }
 .calendar {
     margin-right: 15px;
 }

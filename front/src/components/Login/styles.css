@@ -3,21 +3,74 @@
 .body {
     background-color: #f4f9ff;
     color: #383e45;
-    font-size: 1.25rem;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 3rem;
+    text-align: center;
 }
 .container {
-    max-width: 600px;
+    max-width: 800px;
     margin: 0 auto;
 }
+@keyframes swing {
+    0% {
+      transform: rotate(0deg);
+    }
+    10% {
+      transform: rotate(10deg);
+    }
+    30% {
+      transform: rotate(0deg);
+    }
+    40% {
+      transform: rotate(-10deg);
+    }
+    50% {
+      transform: rotate(0deg);
+    }
+    60% {
+      transform: rotate(5deg);
+    }
+    70% {
+      transform: rotate(0deg);
+    }
+    80% {
+      transform: rotate(-5deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+  
 .title {
+
     padding-top: 15px;
     color: aquamarine;
     font-weight: bold;
-    font-family: 'Yanone Kaffeesatz', sans-serif;
-    font-size: 50px;
+    
 }
 h2 {
+    animation-name: swing;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
     color: orange;
     font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 
+@keyframes SignUp {
+    0% {
+    opacity: 0;/* 透明 */
+    transform: translateX(1500px);
+    }
+    100% {
+    opacity: 30;/* 不透明 */
+    transform: translateX(0);
+    }
+}
+.text {
+    animation-duration: 2s;/* アニメーション時間 */
+    animation-name: SignUp;/* アニメーション名 */
+    animation-iteration-count: 1;
+
+}
