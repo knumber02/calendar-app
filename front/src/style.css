@@ -18,17 +18,24 @@ li:first-child{
     font-size: 50px;
 }
 .pages {
+    text-decoration: none;
     color: orange;
     font-size: 30px;
     font-family: 'Roboto', sans-serif;
+    vertical-align: baseline;
 }
-.pages:link, .pages:visited, .pages:hover, .pages:active {
+.pages:visited{
     color: orange;
-    opacity: 50%;
 }
 .calendar {
     margin-right: 15px;
 }
+.calendar:hover {
+    opacity: 50%;
+}
 .map {
     padding-right: 20px;
+}
+.map:hover {
+    opacity: 50%;
 }

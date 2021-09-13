@@ -16,25 +16,31 @@ import CurrentScheduleDialog from "./components/CurrentScheduleDialog/container"
 import { applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import SimpleMap from "./components/GoogleMap/presentation";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route ,Switch, Redirect} from "react-router-dom";
 import Navbar from "./Navbar.js";
+import Login from "./components/Login"
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
 
 const App = () => (
     <Provider store={store}>
-        <Router>    
-            <Navbar />
-            <MuiPickersUtilsProvider utils={DayjsUtils}>
-                <Route exact path="/">
+        <Router>   
+            <Route  exact path="/" >
+                <Login />
+            </Route>
+            <Route exact path="/calendar">
+                <MuiPickersUtilsProvider utils={DayjsUtils}>
+                <Navbar />
                     <Navigation />
                     <CalendarBoard />
                     <AddScheduleDialog />
                     <CurrentScheduleDialog />
-                </Route>
-             </MuiPickersUtilsProvider>
-            <Route path="/maps" component={SimpleMap} />
-            
+                </MuiPickersUtilsProvider>
+            </Route>
+            <Route path="/maps">
+                <Navbar />
+                <SimpleMap />
+            </Route>
         </Router>
     </Provider>
 )

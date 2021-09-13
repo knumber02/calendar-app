@@ -32,6 +32,7 @@ const mergeProps = (stateProps, dispatchProps) => ({
         dispatchProps.setMonth(month);
         dispatchProps.fetchItem(month);
     },
+    
     month: stateProps.calendar,
     calendar: createCalendar(stateProps.calendar),
 });

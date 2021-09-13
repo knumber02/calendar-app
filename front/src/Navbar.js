@@ -9,7 +9,8 @@ class Navbar extends React.Component {
         <li  href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet" className={styles.title}>Calendar & Map App</li>
 
         <li className={styles.pages}>
-          <Link to="/" className={styles.calendar}>Calendar</Link>
+          <Link to="/" className={styles.calendar}>Top</Link>
+          <Link to="/calendar" className={styles.calendar}>Calendar</Link>
           <Link to="/maps" className={styles.map}>Map</Link>
         </li>
       </ul>

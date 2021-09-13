@@ -4,8 +4,7 @@ import { LocationOnOutlined, NotesOutlined, AccessTime, Close } from "@material-
 import { withStyles } from "@material-ui/styles";
 import {DatePicker} from "@material-ui/pickers";
 import * as styles from "./style.css";
-import SimpleMap from "../GoogleMap/presentation";
-
+import {withRouter} from "react-router";
 const spacer = {margin  : "4px 0"};
 const Title = withStyles({
     root: { fontSize: 22}
@@ -13,6 +12,7 @@ const Title = withStyles({
 
 const AddScheduleDialog = ({ schedule: { form: {title, location, description, date},isDialogOpen, isStartEdit}, closeDialog,setSchedule, saveSchedule, setIsEditStart }) => {
     const isTitleInvalid = !title && isStartEdit;
+
     return (
       <>
 
@@ -84,4 +84,4 @@ const AddScheduleDialog = ({ schedule: { form: {title, location, description, da
       </>
     );
 };
-export default AddScheduleDialog;
+export default withRouter(AddScheduleDialog);

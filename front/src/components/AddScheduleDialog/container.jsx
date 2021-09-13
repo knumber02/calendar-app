@@ -24,7 +24,7 @@ const mapDispatchToProps = dispatch => ({
   },
   setIsEditStart: () => {
     dispatch(addScheduleStartEdit());
-  }
+  },
 });
 
 const mergeProps = (stateProps, dispatchProps) => {

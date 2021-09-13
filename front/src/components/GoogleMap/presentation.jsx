@@ -14,7 +14,7 @@ const options = {
 
  const SimpleMap =  ()  => {
     const [center, setCenter ] = useState({lat: "34.665442", lng:"135.432338"})
-    const [zoom, setZoom] = useState(13);
+    const [zoom, setZoom] = useState(10);
     const [currentPosition, setCurrentPosition] = useState();
     const [isOpen, setIsOpen] = useState(false);
     const [map, setMap] = useState(null);
