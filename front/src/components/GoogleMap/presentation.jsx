@@ -99,7 +99,7 @@ const options = {
         </div>
         <div style={{ height: "100vh", width: "100%"}}>
             <GoogleMapReact
-            bootstrapURLKeys={{ key: "AIzaSyDAmPKJxi7zuzD2i_l8wXJTEpIn68A6wtw"}}
+            bootstrapURLKeys={{ key: ""}}
             center={center}
             zoom={zoom}
             options={options}
