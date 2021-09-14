@@ -69,14 +69,14 @@ const CurrentScheduleDialog = ({schedule: {item, isDialogOpen }, closeDialog, de
                        <Grid
                        container
                        spacing={1}
-                        alignments="center"
+                        alignItems="center"
                         justify="space-between"
                         style={spacer(0,4)}
                         >
                             <Grid item>
                                 <NotesOutlined />
                             </Grid>
-                            <Grid item>
+                            <Grid item xs={10}>
                                 <Typography>{item.description}</Typography>
                             </Grid>
                         </Grid>
