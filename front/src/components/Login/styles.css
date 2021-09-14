@@ -48,7 +48,7 @@
     font-weight: bold;
     
 }
-h2 {
+.subtitle {
     animation-name: swing;
     animation-duration: 0.5s;
     animation-timing-function: ease-in-out;
@@ -68,6 +68,7 @@ h2 {
     transform: translateX(0);
     }
 }
+
 .text {
     animation-duration: 2s;/* アニメーション時間 */
     animation-name: SignUp;/* アニメーション名 */

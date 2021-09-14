@@ -11,4 +11,5 @@
 When I use the usual calendar, I realized that I wanted the more functions so that it is easy for me to schedule plans. So, I made this app for users that have the same feelings. 
 
 ### Usage
-When you start the this app,  you are in the top page.   In the top page, you just push the button in the center of page. And then, you are in the calendar page.  In the calendar page, you can post and delete your plan in the calendar board. How?  First, you push the calendar board which you can select. (Aside to that, today's board is marked as a blue circle.)  
+When you start the this app,  you are in the top page. <br> In the top page, you just push the button in the center of page. And then, you are in the calendar page.<br>In the calendar page, you can post and delete your plan in the calendar board. How? <br> First, you push the calendar board which you can select. (Aside to that, today's board is marked as a blue circle.) <br> 
+Second, the dialog opens up, you can add the title(requirment) and the location and the description of your schedule. When you finish to type your schedule in the dialog, push the below button so that you can add the schedule. Once you add the schedule in the above procedure, you can look back 

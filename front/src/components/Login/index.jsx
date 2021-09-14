@@ -17,7 +17,7 @@ const LoginPage = () => (
        <div className={styles.body}>
         <div className={styles.container}>
             <h1 className={styles.title}>Calendar & Map App !!!</h1>
-            <h2>~Welcome to My Final Project!~</h2>
+            <h2 className={styles.subtitle}>~Welcome to My Final Project!~</h2>
             <p className={styles.text}>Please push the below button.</p>
             <Button style={style.button} ><Link to="/calendar"　style={{textDecoration: "none"}}>START</Link></Button>
          </div>
