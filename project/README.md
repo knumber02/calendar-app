@@ -1,12 +1,13 @@
 # Calendar & Map App
-  I made Calendar application mixed with Map for CS'50 Final Project.
-## Video Demo: url
+  I made Calendar application mixed with Map for CS50 Final Project.
+## Video Demo: 
+https://youtu.be/tD8vTroWOoM
 
 ## Description
 ### Setup Environment
  I use JavaScript, React,  Redux, CSS and Docker. 
-
-### User Goal
+ 
+### Purpose
 When I use the usual calendar, I realized that I wanted the more functions so that it is easy for me to schedule plans. <br> So, I come up with my idea that calendar mixed with map is the useful tools for users in order that  map helps users plan schedules by searching the location information, and then I made this application.
 
 ### Usage
